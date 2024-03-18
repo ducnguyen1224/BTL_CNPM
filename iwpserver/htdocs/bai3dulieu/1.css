@@ -146,3 +146,34 @@ body{
   background:linear-gradient(90deg, rgba(148,61,90,1) 47%, rgba(218,118,135,1) 100%);
 }
 
+@media screen and (max-width: 768px) {
+  /* Điều chỉnh nội dung trong profile card khi màn hình nhỏ hơn 768px */
+  .profile-card .contents {
+    padding: 1rem; /* Giảm padding để phù hợp với kích thước nhỏ hơn */
+  }
+
+  .profile-card .card-block {
+    padding: 0; /* Giảm padding để phù hợp với kích thước nhỏ hơn */
+  }
+
+  .profile-card .card-text {
+    font-size: 0.875rem; /* Giảm kích thước font để phù hợp với kích thước nhỏ hơn */
+  }
+}
+@media screen and (max-width: 992px) {
+  .card-deck .col-sm-3 {
+    flex-basis: calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-deck .col-sm-3 {
+    flex-basis: calc(50% - 20px); /* Hiển thị 2 profile card trong mỗi hàng */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .card-deck .col-sm-3 {
+    flex-basis: calc(100% - 20px); /* Hiển thị 1 profile card trong mỗi hàng */
+  }
+}
