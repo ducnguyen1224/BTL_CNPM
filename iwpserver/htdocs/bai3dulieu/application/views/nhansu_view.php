@@ -231,29 +231,6 @@
       });
   });
 </script>
-<!-- Đoạn mã JavaScript AJAX nút delete -->
-<script>
-  $(document).ready(function(){
-    // Xử lý sự kiện khi click vào nút xóa
-    $('.fa-trash').click(function(event){
-        event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ a
-
-        // Lấy URL cần gửi yêu cầu xóa
-        var deleteUrl = $(this).attr('href');
-
-        // Gửi yêu cầu xóa bằng AJAX
-        $.ajax({
-          type: 'GET',
-          url: deleteUrl,
-          success: function(data){
-                // Xóa thẻ cha của nút đã click (thẻ div chứa thông tin cá nhân)
-            $(event.target).closest('.profile-card').remove();
-          }
-        });
-      });
-  });
-</script>
-
 </body>
+</html>
 
-</html>F
