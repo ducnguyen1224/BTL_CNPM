@@ -1,3 +1,4 @@
+<?php if (!empty($this->session->userdata('data_user')['role']) && $this->session->userdata('data_user')['role'] = 1): ?>
 <div class="container">
 	<div class="text-xs-center">
 		<h3 class="display-3">Add new personnel</h3>
@@ -121,6 +122,7 @@
 		<hr>
 	</div>
 </div>
+<?php endif; ?>
 <div class="container">
 	<nav class="navbar navbar-light bg-light">
 		<form class="form-inline" method="get" action="<?= site_url('nhansu/tim_kiem') ?>">
@@ -170,14 +172,16 @@
 												<p class="card-text projects"><b>Completed projects</b>
 													: <?= $value['projects'] ?></p>
 											</div>
+											<?php if (!empty($this->session->userdata('data_user')['role']) && $this->session->userdata('data_user')['role'] = 1): ?>
 											<p class="socials">
-												<a href="<?= base_url() ?>nhansu/sua_nhansu/<?= $value['id'] ?>"
+												<a href="<?= site_url('nhansu/sua_nhansu/' . $value['id']) ?>"
 												   class="social"><i class="fa-sharp fa-solid fa-user-pen"
 																	 style="margin-right:15%;font-size: 150%;"></i></a>
-												<a href="<?= base_url() ?>nhansu/xoa_nhansu/<?= $value['id'] ?>"
+												<a href="<?= site_url('nhansu/xoa_nhansu/' . $value['id']) ?>"
 												   class="social"><i class="fa-sharp fa-solid fa-trash"
 																	 style="margin-left:15%;font-size:150%;"></i></a>
 											</p>
+											<?php endif; ?>
 										</div>
 										<svg class="waves" xmlns="http://www.w3.org/2000/svg"
 											 xmlns:xlink="http://www.w3.org/1999/xlink"

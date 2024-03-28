@@ -22,9 +22,11 @@ class Auth extends CI_Controller {
 			$password = $this->input->post('password');
 
 			// Validate login
-			if ($this->user_model->login($username, $password)) {
+			$dataUser = $this->user_model->login($username, $password);
+			if ($dataUser) {
 				// Set session data
 				$this->session->set_userdata('logged_in', TRUE);
+				$this->session->set_userdata('data_user', $dataUser);
 				redirect('dashboard'); // Redirect to dashboard or any other page
 			} else {
 				// Invalid login, show error message

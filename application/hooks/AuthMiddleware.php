@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class AuthMiddleware
 {
@@ -16,6 +16,17 @@ class AuthMiddleware
 			redirect('auth/login');
 		} elseif ($CI->session->userdata('logged_in') && current_url() == site_url('auth/login')) {
 			redirect('/');
+		}
+
+		if (empty($CI->session->userdata('data_user')['role'])
+			&& (
+				current_url() != site_url('nhansu')
+				&& current_url() != site_url('nhansu/tim_kiem')
+				&& current_url() != site_url('auth/logout')
+				&& current_url() != site_url('auth/login')
+			)
+		) {
+			redirect('nhansu');
 		}
 	}
 }

@@ -32,7 +32,7 @@ class Nhansu_model extends CI_Model {
     // Thực hiện truy vấn CSDL để tìm kiếm theo tên chính xác
 		$this->db->select('*');
 		$this->db->from('nhan_vien');
-		$this->db->where('name', $searchName);
+		$this->db->like('name', $searchName);
     $query = $this->db->get(); // Chỉ gọi một lần
 
     // Trả về kết quả tìm kiếm dưới dạng mảng kết quả
