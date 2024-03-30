@@ -27,14 +27,16 @@
 							<p class="card-text department"><b>Department</b> : <?= $value['department'] ?></p>
 							<p class="card-text projects"><b>Completed projects</b> : <?= $value['projects'] ?></p>
 						</div>
-						<p class="socials">
-							<a href="<?= base_url() ?>/index.php/nhansu/sua_nhansu/<?= $value['id'] ?>"
-							   class="social"><i class="fa-sharp fa-solid fa-user-pen"
-												 style="margin-right:15%;font-size: 150%;"></i></a>
-							<a href="<?= base_url() ?>/index.php/nhansu/xoa_nhansu/<?= $value['id'] ?>"
-							   class="social"><i class="fa-sharp fa-solid fa-trash"
-												 style="margin-left:15%;font-size:150%;"></i></a>
-						</p>
+						<?php if (!empty($this->session->userdata('data_user')['role']) && $this->session->userdata('data_user')['role'] = 1): ?>
+							<p class="socials">
+								<a href="<?= site_url('nhansu/sua_nhansu/' . $value['id']) ?>"
+								   class="social"><i class="fa-sharp fa-solid fa-user-pen"
+													 style="margin-right:15%;font-size: 150%;"></i></a>
+								<a href="<?= site_url('nhansu/xoa_nhansu/' . $value['id']) ?>"
+								   class="social"><i class="fa-sharp fa-solid fa-trash"
+													 style="margin-left:15%;font-size:150%;"></i></a>
+							</p>
+						<?php endif; ?>
 					</div>
 					<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 						 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
